@@ -8,6 +8,22 @@ import {
 
 const initialState: RegistrationState = { ok: false, message: "" };
 
+const fieldClass =
+  "w-full min-w-0 h-12 bg-surface-container-highest border-none rounded-lg px-3 text-base focus:ring-2 focus:ring-primary focus:outline-none transition-all";
+
+const selectClass = `${fieldClass} pr-9 appearance-none bg-no-repeat bg-[right_0.75rem_center] bg-[length:1rem_1rem] bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%23424752%22><path d=%22M7 10l5 5 5-5z%22/></svg>')]`;
+
+const locations: { value: string; label: string }[] = [
+  {
+    value: "Kolodvorska 83, Osijek",
+    label: "Autoškola Pilot – Kolodvorska 83, Osijek",
+  },
+  {
+    value: "Drinska 93, Osijek",
+    label: "Autoškola Pilot 2 – Drinska 93, Osijek",
+  },
+];
+
 const categoryGroups: { label: string; options: string[] }[] = [
   {
     label: "B kategorija – osobna vozila",
@@ -108,7 +124,7 @@ export default function Registration() {
         </div>
 
         <div className="md:col-span-3">
-          <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-xl border border-outline-variant/30">
+          <div className="bg-surface-container-lowest p-5 sm:p-8 rounded-2xl shadow-xl border border-outline-variant/30">
             {state.ok ? (
               <div className="text-center py-12">
                 <div className="w-16 h-16 rounded-full bg-primary-fixed text-primary mx-auto flex items-center justify-center mb-6">
@@ -124,9 +140,9 @@ export default function Registration() {
                 </p>
               </div>
             ) : (
-              <form action={formAction} className="space-y-6" noValidate>
+              <form action={formAction} className="space-y-5" noValidate>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
+                  <div className="space-y-2 min-w-0">
                     <label
                       htmlFor="name"
                       className="text-sm font-bold text-primary"
@@ -139,14 +155,14 @@ export default function Registration() {
                       type="text"
                       autoComplete="name"
                       placeholder="Ivan Horvat"
-                      className="w-full bg-surface-container-highest border-none rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all"
+                      className={fieldClass}
                       required
                     />
                     {state.errors?.name && (
                       <p className="text-xs text-error">{state.errors.name}</p>
                     )}
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 min-w-0">
                     <label
                       htmlFor="email"
                       className="text-sm font-bold text-primary"
@@ -159,7 +175,7 @@ export default function Registration() {
                       type="email"
                       autoComplete="email"
                       placeholder="ivan@primjer.hr"
-                      className="w-full bg-surface-container-highest border-none rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all"
+                      className={fieldClass}
                       required
                     />
                     {state.errors?.email && (
@@ -170,65 +186,92 @@ export default function Registration() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="phone"
-                      className="text-sm font-bold text-primary"
-                    >
-                      Broj telefona
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      placeholder="+385 91 234 5678"
-                      className="w-full bg-surface-container-highest border-none rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all"
-                      required
-                    />
-                    {state.errors?.phone && (
-                      <p className="text-xs text-error">
-                        {state.errors.phone}
-                      </p>
-                    )}
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="category"
-                      className="text-sm font-bold text-primary"
-                    >
-                      Kategorija
-                    </label>
-                    <select
-                      id="category"
-                      name="category"
-                      defaultValue=""
-                      className="w-full bg-surface-container-highest border-none rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all"
-                      required
-                    >
-                      <option value="" disabled>
-                        Odaberi kategoriju
-                      </option>
-                      {categoryGroups.map((g) => (
-                        <optgroup key={g.label} label={g.label}>
-                          {g.options.map((o) => (
-                            <option key={o} value={o}>
-                              {o}
-                            </option>
-                          ))}
-                        </optgroup>
-                      ))}
-                    </select>
-                    {state.errors?.category && (
-                      <p className="text-xs text-error">
-                        {state.errors.category}
-                      </p>
-                    )}
-                  </div>
+                <div className="space-y-2 min-w-0">
+                  <label
+                    htmlFor="phone"
+                    className="text-sm font-bold text-primary"
+                  >
+                    Broj telefona
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autoComplete="tel"
+                    placeholder="+385 91 234 5678"
+                    className={fieldClass}
+                    required
+                  />
+                  {state.errors?.phone && (
+                    <p className="text-xs text-error">{state.errors.phone}</p>
+                  )}
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 min-w-0">
+                  <label
+                    htmlFor="location"
+                    className="text-sm font-bold text-primary"
+                  >
+                    Lokacija autoškole
+                  </label>
+                  <select
+                    id="location"
+                    name="location"
+                    defaultValue=""
+                    className={selectClass}
+                    required
+                  >
+                    <option value="" disabled>
+                      Odaberi lokaciju
+                    </option>
+                    {locations.map((l) => (
+                      <option key={l.value} value={l.value}>
+                        {l.label}
+                      </option>
+                    ))}
+                  </select>
+                  {state.errors?.location && (
+                    <p className="text-xs text-error">
+                      {state.errors.location}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2 min-w-0">
+                  <label
+                    htmlFor="category"
+                    className="text-sm font-bold text-primary"
+                  >
+                    Kategorija
+                  </label>
+                  <select
+                    id="category"
+                    name="category"
+                    defaultValue=""
+                    className={selectClass}
+                    required
+                  >
+                    <option value="" disabled>
+                      Odaberi kategoriju
+                    </option>
+                    {categoryGroups.map((g) => (
+                      <optgroup key={g.label} label={g.label}>
+                        {g.options.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </optgroup>
+                    ))}
+                  </select>
+                  {state.errors?.category && (
+                    <p className="text-xs text-error">
+                      {state.errors.category}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2 min-w-0">
                   <label
                     htmlFor="date"
                     className="text-sm font-bold text-primary"
@@ -239,7 +282,7 @@ export default function Registration() {
                     id="date"
                     name="date"
                     type="date"
-                    className="w-full bg-surface-container-highest border-none rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all"
+                    className={`${fieldClass} appearance-none`}
                     required
                   />
                   {state.errors?.date && (
@@ -259,7 +302,7 @@ export default function Registration() {
                     name="message"
                     rows={4}
                     placeholder="Dodatne informacije ili pitanja…"
-                    className="w-full bg-surface-container-highest border-none rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none transition-all resize-none"
+                    className="w-full min-w-0 bg-surface-container-highest border-none rounded-lg p-3 text-base focus:ring-2 focus:ring-primary focus:outline-none transition-all resize-none"
                   />
                 </div>
 

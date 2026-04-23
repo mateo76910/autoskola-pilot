@@ -1,27 +1,27 @@
-import Image from "next/image";
-
 const locations = [
   {
-    name: "Pilot – Zagreb Centar",
-    address: "Ilica 124, 10000 Zagreb",
+    name: "Autoškola Pilot",
+    address: "Kolodvorska 83, 31000 Osijek",
     hours: "Pon – Sub: 08 – 20h",
-    features: ["Besplatan parking", "Pristupačno javnim prijevozom"],
-    image:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80",
-    alt: "Lokacija autoškole Pilot u Zagrebu",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=Ilica+124+Zagreb",
+    features: ["Besplatan parking"],
+    query: "Kolodvorska 83, 31000 Osijek",
   },
   {
-    name: "Pilot – Split",
-    address: "Velebitska 48, 21000 Split",
+    name: "Autoškola Pilot 2",
+    address: "Drinska 93, 31000 Osijek",
     hours: "Pon – Pet: 09 – 18h",
-    features: ["Punionice za električna vozila", "Moderna predavaonica"],
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80",
-    alt: "Lokacija autoškole Pilot u Splitu",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=Velebitska+48+Split",
+    features: ["Moderna predavaonica", "Besplatan parking"],
+    query: "Drinska 93, 31000 Osijek",
   },
 ];
+
+function mapEmbedSrc(query: string) {
+  return `https://www.google.com/maps?q=${encodeURIComponent(query)}&hl=hr&z=16&output=embed`;
+}
+
+function mapLinkHref(query: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
 
 export default function Locations() {
   return (
@@ -43,12 +43,13 @@ export default function Locations() {
               className="bg-surface-container-lowest rounded-2xl overflow-hidden flex flex-col sm:flex-row shadow-sm border border-outline-variant/30"
             >
               <div className="sm:w-1/2 h-64 sm:h-auto relative min-h-60">
-                <Image
-                  src={l.image}
-                  alt={l.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                <iframe
+                  title={`Karta lokacije ${l.name}`}
+                  src={mapEmbedSrc(l.query)}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0 w-full h-full border-0"
+                  allowFullScreen
                 />
               </div>
               <div className="sm:w-1/2 p-8 flex flex-col justify-center">
@@ -84,12 +85,12 @@ export default function Locations() {
                   ))}
                 </div>
                 <a
-                  href={l.mapUrl}
+                  href={mapLinkHref(l.query)}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="text-primary border-b border-primary font-bold text-sm self-start"
                 >
-                  Pronađi na karti
+                  Otvori u Google Mapsu
                 </a>
               </div>
             </article>

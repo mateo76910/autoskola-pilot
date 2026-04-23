@@ -15,8 +15,7 @@ const instructors: Instructor[] = [
     experience: "12 godina iskustva",
     role: "B kategorija",
     rating: 5,
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    image: "/instructors/instruktor1.webp",
     alt: "Instruktor vožnje Davor Sterling",
   },
   {
@@ -24,8 +23,7 @@ const instructors: Instructor[] = [
     experience: "8 godina iskustva",
     role: "B i A kategorija",
     rating: 4.5,
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
+    image: "/instructors/instruktor2.webp",
     alt: "Instruktorica vožnje Sara Jenkić",
   },
   {
@@ -33,8 +31,7 @@ const instructors: Instructor[] = [
     experience: "15 godina iskustva",
     role: "C kategorija",
     rating: 5,
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+    image: "/instructors/instruktor3.webp",
     alt: "Instruktor vožnje Marko Tornjak",
   },
   {
@@ -42,8 +39,7 @@ const instructors: Instructor[] = [
     experience: "6 godina iskustva",
     role: "B kategorija",
     rating: 5,
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+    image: "/instructors/instruktor4.webp",
     alt: "Instruktorica vožnje Elena Rossi",
   },
 ];
@@ -55,7 +51,8 @@ function Stars({ rating }: { rating: number }) {
   return (
     <div className="flex gap-1 mt-3" aria-label={`Ocjena ${rating} od 5`}>
       {Array.from({ length: total }).map((_, i) => {
-        const icon = i < full ? "star" : i === full && half ? "star_half" : "star";
+        const icon =
+          i < full ? "star" : i === full && half ? "star_half" : "star";
         const active = i < full || (i === full && half);
         return (
           <span
@@ -93,7 +90,7 @@ export default function Instructors() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {instructors.map((i) => (
+          {instructors.map((i, idx) => (
             <article
               key={i.name}
               className="group relative bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/20"
@@ -104,7 +101,10 @@ export default function Instructors() {
                   alt={i.alt}
                   width={600}
                   height={600}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  priority={idx === 0}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">

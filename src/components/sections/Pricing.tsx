@@ -42,7 +42,7 @@ function PriceTable({
 }) {
   return (
     <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden shadow-sm">
-      <div className="flex items-center gap-4 p-6 border-b border-outline-variant/30 bg-surface-container-low">
+      <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 border-b border-outline-variant/30 bg-surface-container-low">
         <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white">
           <span className="material-symbols-outlined">{icon}</span>
         </div>
@@ -54,31 +54,42 @@ function PriceTable({
         </div>
       </div>
       <div className="overflow-x-auto">
-        <table className="w-full text-left">
+        <table className="w-full text-left table-fixed">
+          <colgroup>
+            <col className="w-[22%] sm:w-[28%]" />
+            <col className="w-[38%] sm:w-[40%]" />
+            <col className="w-[40%] sm:w-[32%]" />
+          </colgroup>
           <thead>
-            <tr className="bg-surface-container-low text-on-surface-variant text-xs uppercase tracking-wider">
-              <th scope="col" className="px-6 py-3 font-bold">
+            <tr className="bg-surface-container-low text-on-surface-variant text-[10px] sm:text-xs uppercase tracking-wider">
+              <th scope="col" className="px-3 py-3 sm:px-6 font-bold">
                 Kategorija
               </th>
-              <th scope="col" className="px-6 py-3 font-bold">
-                Posjeduje kategoriju
+              <th scope="col" className="px-3 py-3 sm:px-6 font-bold">
+                <span className="sm:hidden">Posjeduje</span>
+                <span className="hidden sm:inline">Posjeduje kategoriju</span>
               </th>
-              <th scope="col" className="px-6 py-3 font-bold text-right">
+              <th
+                scope="col"
+                className="px-3 py-3 sm:px-6 font-bold text-right"
+              >
                 Cijena
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-xs sm:text-sm">
             {rows.map((r, i) => (
               <tr
                 key={`${r.category}-${r.has}-${i}`}
                 className="border-t border-outline-variant/20 hover:bg-surface-container-low/60 transition-colors"
               >
-                <td className="px-6 py-4 font-bold text-primary">
+                <td className="px-3 sm:px-6 py-3 sm:py-4 font-bold text-primary">
                   {r.category}
                 </td>
-                <td className="px-6 py-4 text-on-surface-variant">{r.has}</td>
-                <td className="px-6 py-4 text-right font-extrabold">
+                <td className="px-3 sm:px-6 py-3 sm:py-4 text-on-surface-variant">
+                  {r.has}
+                </td>
+                <td className="px-3 sm:px-6 py-3 sm:py-4 text-right font-extrabold whitespace-nowrap">
                   {r.price}
                 </td>
               </tr>
@@ -108,7 +119,7 @@ export default function Pricing() {
         </div>
 
         {/* Payment methods */}
-        <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-6 md:p-8 mb-12 shadow-sm">
+        <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-4 sm:p-6 md:p-8 mb-12 shadow-sm">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 md:items-start">
             <div className="md:w-1/3">
               <div className="flex items-center gap-3 mb-3">
@@ -126,42 +137,57 @@ export default function Pricing() {
               </p>
             </div>
             <div className="flex-1 overflow-x-auto">
-              <table className="w-full text-left">
+              <table className="w-full text-left table-fixed">
+                <colgroup>
+                  <col className="w-[65%] sm:w-[70%]" />
+                  <col className="w-[35%] sm:w-[30%]" />
+                </colgroup>
                 <thead>
-                  <tr className="bg-surface-container-low text-on-surface-variant text-xs uppercase tracking-wider">
-                    <th scope="col" className="px-6 py-3 font-bold rounded-l-lg">
+                  <tr className="bg-surface-container-low text-on-surface-variant text-[10px] sm:text-xs uppercase tracking-wider">
+                    <th
+                      scope="col"
+                      className="px-3 sm:px-6 py-3 font-bold rounded-l-lg"
+                    >
                       Način plaćanja
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 font-bold text-right rounded-r-lg"
+                      className="px-3 sm:px-6 py-3 font-bold text-right rounded-r-lg"
                     >
                       Broj rata
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-xs sm:text-sm">
                   <tr className="border-t border-outline-variant/20">
-                    <td className="px-6 py-4">Uplatnica / transakcijski</td>
-                    <td className="px-6 py-4 text-right font-bold">1 – 6</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4">
+                      Uplatnica / transakcijski
+                    </td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 text-right font-bold whitespace-nowrap">
+                      1 – 6
+                    </td>
                   </tr>
                   <tr className="border-t border-outline-variant/20">
-                    <td className="px-6 py-4">
+                    <td className="px-3 sm:px-6 py-3 sm:py-4">
                       Premium Visa{" "}
-                      <span className="text-xs text-on-surface-variant">
+                      <span className="text-[10px] sm:text-xs text-on-surface-variant">
                         (bez kamata)
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-right font-bold">1 – 12</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 text-right font-bold whitespace-nowrap">
+                      1 – 12
+                    </td>
                   </tr>
                   <tr className="border-t border-outline-variant/20">
-                    <td className="px-6 py-4">
+                    <td className="px-3 sm:px-6 py-3 sm:py-4">
                       Visa Inspire (PBZ){" "}
-                      <span className="text-xs text-on-surface-variant">
+                      <span className="text-[10px] sm:text-xs text-on-surface-variant">
                         (bez kamata)
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-right font-bold">1 – 12</td>
+                    <td className="px-3 sm:px-6 py-3 sm:py-4 text-right font-bold whitespace-nowrap">
+                      1 – 12
+                    </td>
                   </tr>
                 </tbody>
               </table>
