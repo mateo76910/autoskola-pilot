@@ -47,8 +47,19 @@ export const faqItems = [
 
 export default function Faq() {
   return (
-    <section className="py-24 bg-surface" id="faq">
-      <div className="max-w-4xl mx-auto px-6 md:px-8">
+    <section
+      className="relative py-24 bg-gradient-to-b from-surface via-tertiary-fixed/15 to-surface overflow-hidden"
+      id="faq"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-10 right-0 w-[24rem] h-[24rem] rounded-full bg-tertiary-fixed/30 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-0 w-[22rem] h-[22rem] rounded-full bg-primary-fixed/25 blur-3xl"
+      />
+      <div className="relative max-w-4xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <span className="text-tertiary font-bold tracking-widest text-xs uppercase">
             Pojašnjenja

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import HeroImage from "@/components/HeroImage";
 
 export default function Hero() {
   return (
@@ -36,16 +36,7 @@ export default function Hero() {
 
         <div className="relative">
           <div className="absolute -right-20 -top-20 w-96 h-96 bg-primary-fixed rounded-full mix-blend-multiply filter blur-3xl opacity-30" />
-          <div className="rounded-tl-[4rem] rounded-br-[4rem] overflow-hidden shadow-2xl relative z-10">
-            <Image
-              src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1200&q=80"
-              alt="Moderni auto za obuku vozača autoškole Pilot"
-              width={1200}
-              height={800}
-              priority
-              className="w-full h-[500px] object-cover"
-            />
-          </div>
+          <HeroImage />
 
           <div className="absolute -bottom-6 -left-6 glass-nav bg-surface/90 p-6 rounded-xl shadow-xl z-20 flex items-center gap-4">
             <div className="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary">

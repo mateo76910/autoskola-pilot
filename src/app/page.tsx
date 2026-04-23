@@ -5,6 +5,7 @@ import Instructors from "@/components/sections/Instructors";
 import Registration from "@/components/sections/Registration";
 import Faq, { faqItems } from "@/components/sections/Faq";
 import Locations from "@/components/sections/Locations";
+import RoadDivider from "@/components/RoadDivider";
 
 export default function Home() {
   const faqLd = {
@@ -28,9 +29,11 @@ export default function Home() {
       />
       <Hero />
       <Categories />
+      <RoadDivider direction="ltr" />
       <Pricing />
       <Instructors />
       <Registration />
+      <RoadDivider direction="rtl" />
       <Faq />
       <Locations />
     </>

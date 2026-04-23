@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -86,13 +87,13 @@ export default function RootLayout({
     url: SITE_URL,
     description:
       "Profesionalna autoškola za B, A i C kategorije u Hrvatskoj. Ovlašteni HAK instruktori, moderna vozila i povoljne cijene.",
-    telephone: "+385 1 234 5678",
+    telephone: "031 311 522",
     email: "info@autoskola-pilot.hr",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Ilica 124",
-      addressLocality: "Zagreb",
-      postalCode: "10000",
+      streetAddress: "Kolodvorska 83",
+      addressLocality: "Osijek",
+      postalCode: "31000",
       addressCountry: "HR",
     },
     areaServed: "HR",
@@ -118,6 +119,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

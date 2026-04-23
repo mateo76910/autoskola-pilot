@@ -25,8 +25,15 @@ function mapLinkHref(query: string) {
 
 export default function Locations() {
   return (
-    <section className="py-24 bg-surface-container-low" id="lokacije">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+    <section
+      className="relative py-24 bg-surface-container-low overflow-hidden"
+      id="lokacije"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 w-[40rem] h-[24rem] rounded-full bg-primary-fixed/30 blur-3xl"
+      />
+      <div className="relative max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <span className="text-tertiary font-bold tracking-widest text-xs uppercase">
             Prisutnost

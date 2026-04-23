@@ -84,10 +84,10 @@ export default function Registration() {
               <div>
                 <div className="font-bold">Telefon</div>
                 <a
-                  href="tel:+38512345678"
+                  href="tel:031311522"
                   className="text-sm text-on-surface-variant hover:text-primary"
                 >
-                  +385 1 234 5678
+                  031 311 522
                 </a>
               </div>
             </div>
@@ -316,9 +316,82 @@ export default function Registration() {
                 <button
                   type="submit"
                   disabled={pending}
-                  className="pilot-gradient text-white w-full py-4 rounded-lg font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-lg disabled:opacity-70 disabled:hover:scale-100"
+                  aria-live="polite"
+                  className="pilot-gradient text-white w-full py-4 rounded-lg font-bold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-lg disabled:opacity-80 disabled:hover:scale-100 flex items-center justify-center gap-3"
                 >
-                  {pending ? "Slanje…" : "Pošalji prijavu"}
+                  {pending ? (
+                    <>
+                      <span
+                        aria-hidden="true"
+                        className="inline-flex flex-col gap-[3px] bg-black/30 p-[3px] rounded"
+                      >
+                        <span className="traffic-light traffic-red block w-2.5 h-2.5 rounded-full" />
+                        <span className="traffic-light traffic-yellow block w-2.5 h-2.5 rounded-full" />
+                        <span className="traffic-light traffic-green block w-2.5 h-2.5 rounded-full" />
+                      </span>
+                      <span>Slanje…</span>
+                      <style jsx>{`
+                        .traffic-light {
+                          background: rgba(255, 255, 255, 0.2);
+                          animation: traffic 1.5s infinite;
+                        }
+                        .traffic-red {
+                          animation-name: traffic-red;
+                        }
+                        .traffic-yellow {
+                          animation-name: traffic-yellow;
+                          animation-delay: 0.5s;
+                        }
+                        .traffic-green {
+                          animation-name: traffic-green;
+                          animation-delay: 1s;
+                        }
+                        @keyframes traffic-red {
+                          0%,
+                          25% {
+                            background: #ff5252;
+                            box-shadow: 0 0 6px #ff5252;
+                          }
+                          40%,
+                          100% {
+                            background: rgba(255, 255, 255, 0.2);
+                            box-shadow: none;
+                          }
+                        }
+                        @keyframes traffic-yellow {
+                          0%,
+                          25% {
+                            background: #ffd600;
+                            box-shadow: 0 0 6px #ffd600;
+                          }
+                          40%,
+                          100% {
+                            background: rgba(255, 255, 255, 0.2);
+                            box-shadow: none;
+                          }
+                        }
+                        @keyframes traffic-green {
+                          0%,
+                          25% {
+                            background: #69f0ae;
+                            box-shadow: 0 0 6px #69f0ae;
+                          }
+                          40%,
+                          100% {
+                            background: rgba(255, 255, 255, 0.2);
+                            box-shadow: none;
+                          }
+                        }
+                        @media (prefers-reduced-motion: reduce) {
+                          .traffic-light {
+                            animation: none;
+                          }
+                        }
+                      `}</style>
+                    </>
+                  ) : (
+                    "Pošalji prijavu"
+                  )}
                 </button>
 
                 <p className="text-xs text-on-surface-variant text-center">
