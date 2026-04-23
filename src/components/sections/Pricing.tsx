@@ -34,26 +34,16 @@ function PriceTable({
   subtitle,
   rows,
   icon,
-  accent,
 }: {
   title: string;
   subtitle: string;
   rows: Row[];
   icon: string;
-  accent: "blue" | "gold" | "teal";
 }) {
-  const accentMap = {
-    blue: "bg-gradient-to-br from-primary to-primary-container",
-    gold: "bg-gradient-to-br from-tertiary-container to-tertiary",
-    teal: "bg-gradient-to-br from-secondary to-on-secondary-container",
-  } as const;
-
   return (
     <div className="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 overflow-hidden shadow-sm">
       <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6 border-b border-outline-variant/30 bg-surface-container-low">
-        <div
-          className={`w-12 h-12 rounded-lg flex items-center justify-center text-white shadow-sm ${accentMap[accent]}`}
-        >
+        <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white">
           <span className="material-symbols-outlined">{icon}</span>
         </div>
         <div>
@@ -113,19 +103,8 @@ function PriceTable({
 
 export default function Pricing() {
   return (
-    <section
-      className="relative py-24 bg-gradient-to-b from-surface-container-low via-primary-fixed/20 to-surface-container-low overflow-hidden"
-      id="cjenik"
-    >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-primary-fixed/40 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-24 -left-24 w-[24rem] h-[24rem] rounded-full bg-tertiary-fixed/30 blur-3xl"
-      />
-      <div className="relative max-w-7xl mx-auto px-6 md:px-8">
+    <section className="py-24 bg-surface-container-low" id="cjenik">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-12">
           <span className="text-tertiary font-bold tracking-widest text-xs uppercase">
             Ulaganje
@@ -222,21 +201,18 @@ export default function Pricing() {
             subtitle="Osobna vozila"
             rows={categoryB}
             icon="directions_car"
-            accent="blue"
           />
           <PriceTable
             title="A kategorije"
             subtitle="Motocikli – AM, A1, A2 i A"
             rows={categoryA}
             icon="two_wheeler"
-            accent="gold"
           />
           <PriceTable
             title="C kategorija"
             subtitle="Teretna vozila"
             rows={categoryC}
             icon="local_shipping"
-            accent="teal"
           />
         </div>
 
