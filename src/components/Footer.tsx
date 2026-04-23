@@ -45,7 +45,7 @@ export default function Footer() {
 
         <div className="flex gap-4">
           <a
-            href="mailto:info@pilot-autoskola.hr"
+            href="mailto:info@autoskola-pilot.hr"
             aria-label="Email"
             className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-tertiary-fixed transition-colors"
           >

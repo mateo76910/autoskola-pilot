@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -38,10 +39,19 @@ export default function Navbar() {
       <div className="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
         <Link
           href="/"
-          className="text-2xl font-bold tracking-tighter text-primary font-headline"
+          className="flex items-center gap-2.5 text-2xl font-bold tracking-tighter text-primary font-headline"
           onClick={() => setOpen(false)}
+          aria-label="Pilot Autoškola – naslovnica"
         >
-          Pilot Autoškola
+          <Image
+            src="/logo.png"
+            alt=""
+            width={50}
+            height={50}
+            priority
+            className="h-16 w-16 rounded-md object-contain"
+          />
+          <span>Autoškola Pilot</span>
         </Link>
 
         <div className="hidden md:flex gap-8 items-center font-headline font-semibold tracking-tight">
@@ -74,10 +84,7 @@ export default function Navbar() {
           <span className="sr-only">
             {open ? "Zatvori izbornik" : "Otvori izbornik"}
           </span>
-          <span
-            aria-hidden="true"
-            className="relative block w-6 h-5"
-          >
+          <span aria-hidden="true" className="relative block w-6 h-5">
             <span
               className={`absolute left-0 block h-[2px] w-6 rounded-full bg-current transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                 open ? "top-1/2 -translate-y-1/2 rotate-45" : "top-0"
@@ -130,9 +137,7 @@ export default function Navbar() {
                 transitionDelay: open ? `${80 + links.length * 40}ms` : "0ms",
               }}
               className={`mt-3 inline-flex justify-center bg-tertiary-fixed text-on-tertiary-fixed px-6 py-3 rounded-lg font-bold transition-all duration-300 ${
-                open
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-1"
+                open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
               }`}
             >
               Upiši se

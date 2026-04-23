@@ -57,7 +57,7 @@ const categoryGroups: { label: string; options: string[] }[] = [
 export default function Registration() {
   const [state, formAction, pending] = useActionState(
     registerCandidate,
-    initialState
+    initialState,
   );
 
   return (
@@ -100,10 +100,10 @@ export default function Registration() {
               <div>
                 <div className="font-bold">E-mail</div>
                 <a
-                  href="mailto:info@pilot-autoskola.hr"
+                  href="mailto:info@autoskola-pilot.hr"
                   className="text-sm text-on-surface-variant hover:text-primary"
                 >
-                  info@pilot-autoskola.hr
+                  info@autoskola-pilot.hr
                 </a>
               </div>
             </div>
@@ -179,9 +179,7 @@ export default function Registration() {
                       required
                     />
                     {state.errors?.email && (
-                      <p className="text-xs text-error">
-                        {state.errors.email}
-                      </p>
+                      <p className="text-xs text-error">{state.errors.email}</p>
                     )}
                   </div>
                 </div>

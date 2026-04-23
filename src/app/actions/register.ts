@@ -25,7 +25,7 @@ const LOCATION_EMAILS: Record<string, { to: string; label: string }> = {
 };
 
 const FROM_ADDRESS =
-  process.env.RESEND_FROM_EMAIL ?? "Pilot Autoškola <upis@pilot-autoskola.hr>";
+  process.env.RESEND_FROM_EMAIL ?? "Pilot Autoškola <upis@autoskola-pilot.hr>";
 
 function escapeHtml(str: string) {
   return str

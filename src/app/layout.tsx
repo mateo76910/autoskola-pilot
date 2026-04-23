@@ -18,7 +18,7 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const SITE_URL = "https://www.pilot-autoskola.hr";
+const SITE_URL = "https://www.autoskola-pilot.hr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -87,7 +87,7 @@ export default function RootLayout({
     description:
       "Profesionalna autoškola za B, A i C kategorije u Hrvatskoj. Ovlašteni HAK instruktori, moderna vozila i povoljne cijene.",
     telephone: "+385 1 234 5678",
-    email: "info@pilot-autoskola.hr",
+    email: "info@autoskola-pilot.hr",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Ilica 124",

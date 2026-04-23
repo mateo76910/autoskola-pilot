@@ -2,73 +2,27 @@ import Image from "next/image";
 
 type Instructor = {
   name: string;
-  experience: string;
-  role: string;
-  rating: number;
   image: string;
-  alt: string;
 };
 
 const instructors: Instructor[] = [
   {
-    name: "Davor Sterling",
-    experience: "12 godina iskustva",
-    role: "B kategorija",
-    rating: 5,
+    name: "Predrag Kunić",
     image: "/instructors/instruktor1.webp",
-    alt: "Instruktor vožnje Davor Sterling",
   },
   {
-    name: "Sara Jenkić",
-    experience: "8 godina iskustva",
-    role: "B i A kategorija",
-    rating: 4.5,
+    name: "Igor Halt, mag.oec., ing.traff.",
     image: "/instructors/instruktor2.webp",
-    alt: "Instruktorica vožnje Sara Jenkić",
   },
   {
-    name: "Marko Tornjak",
-    experience: "15 godina iskustva",
-    role: "C kategorija",
-    rating: 5,
+    name: "Maja Kozić",
     image: "/instructors/instruktor3.webp",
-    alt: "Instruktor vožnje Marko Tornjak",
   },
   {
-    name: "Elena Rossi",
-    experience: "6 godina iskustva",
-    role: "B kategorija",
-    rating: 5,
+    name: "Viktor Kunić, ing.traff.",
     image: "/instructors/instruktor4.webp",
-    alt: "Instruktorica vožnje Elena Rossi",
   },
 ];
-
-function Stars({ rating }: { rating: number }) {
-  const full = Math.floor(rating);
-  const half = rating % 1 !== 0;
-  const total = 5;
-  return (
-    <div className="flex gap-1 mt-3" aria-label={`Ocjena ${rating} od 5`}>
-      {Array.from({ length: total }).map((_, i) => {
-        const icon =
-          i < full ? "star" : i === full && half ? "star_half" : "star";
-        const active = i < full || (i === full && half);
-        return (
-          <span
-            key={i}
-            className={`material-symbols-outlined ${
-              active ? "filled text-tertiary-fixed-dim" : "text-outline-variant"
-            }`}
-            style={{ fontSize: 16 }}
-          >
-            {icon}
-          </span>
-        );
-      })}
-    </div>
-  );
-}
 
 export default function Instructors() {
   return (
@@ -98,24 +52,17 @@ export default function Instructors() {
               <div className="h-64 overflow-hidden">
                 <Image
                   src={i.image}
-                  alt={i.alt}
+                  alt={i.name}
                   width={600}
                   height={600}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   priority={idx === 0}
                   loading={idx === 0 ? "eager" : "lazy"}
-                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <div className="p-6">
                 <div className="font-headline font-bold text-lg">{i.name}</div>
-                <div className="text-primary text-sm font-semibold">
-                  {i.experience}
-                </div>
-                <div className="text-xs text-on-surface-variant mt-1">
-                  {i.role}
-                </div>
-                <Stars rating={i.rating} />
               </div>
             </article>
           ))}
