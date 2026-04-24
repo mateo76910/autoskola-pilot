@@ -71,7 +71,7 @@ export default function Registration() {
             dogovorili termin upisa i početka obuke.
           </p>
           <div className="space-y-5">
-            <div className="flex items-center gap-4">
+            <div className="flex items-start gap-4">
               <div className="bg-primary-fixed rounded-full w-12 h-12 shrink-0 flex items-center justify-center">
                 <span className="material-symbols-outlined text-primary">
                   call
@@ -79,12 +79,22 @@ export default function Registration() {
               </div>
               <div>
                 <div className="font-bold">Telefon</div>
-                <a
-                  href="tel:+3850977537422"
-                  className="text-sm text-on-surface-variant hover:text-primary"
-                >
-                  +385 97 7537422
-                </a>
+                <div className="flex flex-col gap-1 mt-1">
+                  <a
+                    href="tel:+385977537422"
+                    className="text-sm text-on-surface-variant hover:text-primary"
+                  >
+                    +385 97 7537422{" "}
+                    <span className="opacity-70">(Igor)</span>
+                  </a>
+                  <a
+                    href="tel:+385911003964"
+                    className="text-sm text-on-surface-variant hover:text-primary"
+                  >
+                    +385 91 1003964{" "}
+                    <span className="opacity-70">(Predrag)</span>
+                  </a>
+                </div>
               </div>
             </div>
             <div className="flex items-start gap-4">
