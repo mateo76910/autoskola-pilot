@@ -6,7 +6,7 @@ export type RegistrationState = {
   ok: boolean;
   message: string;
   errors?: Partial<
-    Record<"name" | "email" | "phone" | "location" | "category" | "date", string>
+    Record<"name" | "email" | "phone" | "location" | "category", string>
   >;
 };
 
@@ -36,23 +36,12 @@ function escapeHtml(str: string) {
     .replace(/'/g, "&#39;");
 }
 
-function formatDateHr(iso: string) {
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return iso;
-  return d.toLocaleDateString("hr-HR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
-}
-
 function buildHtml(input: {
   name: string;
   email: string;
   phone: string;
   location: string;
   category: string;
-  date: string;
   message: string;
 }) {
   const rows: [string, string][] = [
@@ -61,7 +50,6 @@ function buildHtml(input: {
     ["Telefon", input.phone],
     ["Lokacija", input.location],
     ["Kategorija", input.category],
-    ["Željeni datum", formatDateHr(input.date)],
   ];
 
   const tableRows = rows
@@ -111,7 +99,6 @@ function buildText(input: {
   phone: string;
   location: string;
   category: string;
-  date: string;
   message: string;
 }) {
   return [
@@ -122,7 +109,6 @@ function buildText(input: {
     `Telefon:       ${input.phone}`,
     `Lokacija:      ${input.location}`,
     `Kategorija:    ${input.category}`,
-    `Željeni datum: ${formatDateHr(input.date)}`,
     input.message ? `\nNapomena:\n${input.message}` : "",
   ]
     .filter(Boolean)
@@ -138,7 +124,6 @@ export async function registerCandidate(
   const phone = String(formData.get("phone") ?? "").trim();
   const location = String(formData.get("location") ?? "").trim();
   const category = String(formData.get("category") ?? "").trim();
-  const date = String(formData.get("date") ?? "").trim();
   const message = String(formData.get("message") ?? "").trim();
 
   const errors: RegistrationState["errors"] = {};
@@ -148,7 +133,6 @@ export async function registerCandidate(
   if (!location || !(location in LOCATION_EMAILS))
     errors.location = "Odaberite lokaciju autoškole.";
   if (!category) errors.category = "Odaberite kategoriju.";
-  if (!date) errors.date = "Odaberite željeni datum.";
 
   if (Object.keys(errors).length > 0) {
     return {
@@ -169,7 +153,7 @@ export async function registerCandidate(
   }
 
   const { to, label } = LOCATION_EMAILS[location];
-  const payload = { name, email, phone, location, category, date, message };
+  const payload = { name, email, phone, location, category, message };
 
   try {
     const resend = new Resend(apiKey);

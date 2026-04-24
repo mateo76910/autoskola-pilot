@@ -4,7 +4,11 @@ const categories = [
     name: "Osobna vozila",
     description:
       "Naš najpopularniji program. Teorijska i praktična nastava uz moderna vozila s dvostrukim komandama.",
-    highlights: ["Minimalno 35 sati vožnje", "Moderan vozni park"],
+    highlights: [
+      "Minimalno 35 sati vožnje",
+      "Moderan vozni park",
+      "Dolazimo po Vas na vožnju!",
+    ],
     icon: "directions_car",
   },
   {

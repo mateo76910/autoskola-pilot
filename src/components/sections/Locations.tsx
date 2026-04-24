@@ -1,15 +1,19 @@
 const locations = [
   {
     name: "Autoškola Pilot",
-    address: "Kolodvorska 83, 31000 Osijek",
-    hours: "Pon – Sub: 08 – 20h",
+    address: "Kolodvorska 83, Retfala, 31000 Osijek",
+    hours: "Pon – Pet: 10 – 16h",
+    phone: "031 311 522",
+    phoneHref: "tel:+385031311522",
     features: ["Besplatan parking"],
     query: "Kolodvorska 83, 31000 Osijek",
   },
   {
     name: "Autoškola Pilot 2",
-    address: "Drinska 93, 31000 Osijek",
-    hours: "Pon – Pet: 09 – 18h",
+    address: "Drinska 93, Bosutsko-Sjenjak, 31000 Osijek",
+    hours: "Pon – Pet: 9 – 16h",
+    phone: "+385 97 753 7422",
+    phoneHref: "tel:+385977537422",
     features: ["Moderna predavaonica", "Besplatan parking"],
     query: "Drinska 93, 31000 Osijek",
   },
@@ -69,6 +73,18 @@ export default function Locations() {
                     </span>
                     {l.hours}
                   </div>
+                  <a
+                    href={l.phoneHref}
+                    className="flex items-center gap-2 text-xs font-bold text-primary hover:underline"
+                  >
+                    <span
+                      className="material-symbols-outlined"
+                      style={{ fontSize: 18 }}
+                    >
+                      call
+                    </span>
+                    {l.phone}
+                  </a>
                   {l.features.map((f) => (
                     <div
                       key={f}

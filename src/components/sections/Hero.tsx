@@ -15,7 +15,7 @@ export default function Hero() {
           <p className="text-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed">
             Pilot Autoškola spaja najviše sigurnosne standarde s modernom
             nastavom. Upiši se danas i kreni putem do vozačke dozvole uz
-            ovlaštene HAK instruktore.
+            instruktore sa dugogodišnjim iskustvom i puno strpljenja.
           </p>
           <div className="flex flex-wrap gap-4">
             <a
@@ -38,8 +38,8 @@ export default function Hero() {
           <div className="absolute -right-20 -top-20 w-96 h-96 bg-primary-fixed rounded-full mix-blend-multiply filter blur-3xl opacity-30" />
           <div className="rounded-tl-[4rem] rounded-br-[4rem] overflow-hidden shadow-2xl relative z-10">
             <Image
-              src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1200&q=80"
-              alt="Moderni auto za obuku vozača autoškole Pilot"
+              src="/instructors/instruktori.jpeg"
+              alt="Instruktori autoškole Pilot"
               width={1200}
               height={800}
               priority
@@ -52,7 +52,9 @@ export default function Hero() {
               <span className="material-symbols-outlined filled">verified</span>
             </div>
             <div>
-              <div className="font-bold text-primary">Ovlašteni instruktori</div>
+              <div className="font-bold text-primary">
+                Ovlašteni instruktori
+              </div>
               <div className="text-sm text-on-surface-variant">
                 HAK certificirana nastava
               </div>

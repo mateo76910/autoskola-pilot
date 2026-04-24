@@ -27,11 +27,7 @@ const locations: { value: string; label: string }[] = [
 const categoryGroups: { label: string; options: string[] }[] = [
   {
     label: "B kategorija – osobna vozila",
-    options: [
-      "B – bez prethodne kategorije",
-      "B – posjedujem A1, A2 ili A",
-      "B – plaćanje na rate",
-    ],
+    options: ["B – bez prethodne kategorije", "B – posjedujem A1, A2 ili A"],
   },
   {
     label: "A kategorije – motocikli",
@@ -76,7 +72,7 @@ export default function Registration() {
           </p>
           <div className="space-y-5">
             <div className="flex items-center gap-4">
-              <div className="bg-primary-fixed p-3 rounded-full">
+              <div className="bg-primary-fixed rounded-full w-12 h-12 shrink-0 flex items-center justify-center">
                 <span className="material-symbols-outlined text-primary">
                   call
                 </span>
@@ -84,39 +80,78 @@ export default function Registration() {
               <div>
                 <div className="font-bold">Telefon</div>
                 <a
-                  href="tel:031311522"
+                  href="tel:+3850977537422"
                   className="text-sm text-on-surface-variant hover:text-primary"
                 >
-                  031 311 522
+                  +385 97 7537422
                 </a>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="bg-primary-fixed p-3 rounded-full">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary-fixed rounded-full w-12 h-12 shrink-0 flex items-center justify-center">
                 <span className="material-symbols-outlined text-primary">
                   mail
                 </span>
               </div>
               <div>
                 <div className="font-bold">E-mail</div>
-                <a
-                  href="mailto:info@autoskola-pilot.hr"
-                  className="text-sm text-on-surface-variant hover:text-primary"
-                >
-                  info@autoskola-pilot.hr
-                </a>
+                <div className="flex flex-col gap-2 mt-1">
+                  <a
+                    href="mailto:as.pilot2018@gmail.com"
+                    className="text-sm text-on-surface-variant hover:text-primary"
+                  >
+                    as.pilot2018@gmail.com
+                  </a>
+                  <a
+                    href="mailto:aspilot.osijek@gmail.com"
+                    className="text-sm text-on-surface-variant hover:text-primary"
+                  >
+                    aspilot.osijek@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="bg-primary-fixed p-3 rounded-full">
+              <div className="bg-primary-fixed rounded-full w-12 h-12 shrink-0 flex items-center justify-center">
                 <span className="material-symbols-outlined text-primary">
-                  schedule
+                  share
                 </span>
               </div>
               <div>
-                <div className="font-bold">Radno vrijeme</div>
-                <div className="text-sm text-on-surface-variant">
-                  Pon – Pet: 08 – 20h, Sub: 09 – 14h
+                <div className="font-bold">Društvene mreže</div>
+                <div className="flex gap-3 mt-2">
+                  <a
+                    href="https://www.instagram.com/autoskolapilot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="w-10 h-10 shrink-0 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary-fixed transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path d="M12 2.2c3.2 0 3.584.012 4.849.07 1.17.053 1.805.249 2.227.415.56.217.96.477 1.38.896.42.42.679.82.896 1.381.166.422.362 1.057.415 2.227.058 1.265.07 1.645.07 4.849 0 3.205-.012 3.584-.07 4.849-.053 1.17-.249 1.805-.415 2.227a3.717 3.717 0 0 1-.896 1.381 3.717 3.717 0 0 1-1.38.896c-.423.166-1.058.362-2.228.415-1.265.058-1.644.07-4.849.07-3.205 0-3.584-.012-4.849-.07-1.17-.053-1.805-.249-2.227-.415a3.717 3.717 0 0 1-1.381-.896 3.717 3.717 0 0 1-.896-1.381c-.166-.422-.362-1.057-.415-2.227-.058-1.265-.07-1.644-.07-4.849 0-3.204.012-3.584.07-4.849.053-1.17.249-1.805.415-2.227.217-.56.477-.96.896-1.38.42-.42.82-.679 1.381-.896.422-.166 1.057-.362 2.227-.415C8.416 2.212 8.796 2.2 12 2.2zm0 1.802c-3.152 0-3.504.012-4.74.068-1.143.052-1.765.241-2.178.4-.547.213-.938.468-1.349.879-.41.41-.666.802-.879 1.349-.16.413-.348 1.035-.4 2.178-.056 1.236-.068 1.588-.068 4.74 0 3.152.012 3.504.068 4.74.052 1.143.24 1.765.4 2.178.213.547.469.938.879 1.349.411.41.802.666 1.349.879.413.16 1.035.348 2.178.4 1.236.056 1.588.068 4.74.068 3.152 0 3.504-.012 4.74-.068 1.143-.052 1.765-.24 2.178-.4a3.632 3.632 0 0 0 1.349-.879c.41-.411.666-.802.879-1.349.16-.413.348-1.035.4-2.178.056-1.236.068-1.588.068-4.74 0-3.152-.012-3.504-.068-4.74-.052-1.143-.241-1.765-.4-2.178a3.632 3.632 0 0 0-.879-1.349 3.632 3.632 0 0 0-1.349-.879c-.413-.16-1.035-.348-2.178-.4-1.236-.056-1.588-.068-4.74-.068zm0 3.068a4.93 4.93 0 1 1 0 9.86 4.93 4.93 0 0 1 0-9.86zm0 8.128a3.198 3.198 0 1 0 0-6.396 3.198 3.198 0 0 0 0 6.396zm6.28-8.336a1.152 1.152 0 1 1-2.304 0 1.152 1.152 0 0 1 2.304 0z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.facebook.com/pilot.osijek/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="w-10 h-10 shrink-0 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary-fixed transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path d="M13.5 21.95V13.5h2.83l.42-3.3H13.5V8.1c0-.96.27-1.61 1.64-1.61h1.75V3.54a23.6 23.6 0 0 0-2.55-.13c-2.53 0-4.26 1.54-4.26 4.37v2.42H7.25v3.3h2.83v8.45h3.42z" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -266,25 +301,6 @@ export default function Registration() {
                     <p className="text-xs text-error">
                       {state.errors.category}
                     </p>
-                  )}
-                </div>
-
-                <div className="space-y-2 min-w-0">
-                  <label
-                    htmlFor="date"
-                    className="text-sm font-bold text-primary"
-                  >
-                    Željeni datum početka obuke
-                  </label>
-                  <input
-                    id="date"
-                    name="date"
-                    type="date"
-                    className={`${fieldClass} appearance-none`}
-                    required
-                  />
-                  {state.errors?.date && (
-                    <p className="text-xs text-error">{state.errors.date}</p>
                   )}
                 </div>
 
