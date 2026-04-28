@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import Timeline from "@/components/sections/Timeline";
 import Categories from "@/components/sections/Categories";
 import Pricing from "@/components/sections/Pricing";
 import Instructors from "@/components/sections/Instructors";
@@ -27,6 +28,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
       <Hero />
+      <Timeline />
       <Categories />
       <Pricing />
       <Instructors />
