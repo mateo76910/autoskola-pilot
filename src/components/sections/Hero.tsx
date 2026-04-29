@@ -46,20 +46,6 @@ export default function Hero() {
               className="w-full h-[500px] object-cover"
             />
           </div>
-
-          <div className="absolute -bottom-6 -left-6 glass-nav bg-surface/90 p-6 rounded-xl shadow-xl z-20 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary">
-              <span className="material-symbols-outlined filled">verified</span>
-            </div>
-            <div>
-              <div className="font-bold text-primary">
-                Ovlašteni instruktori
-              </div>
-              <div className="text-sm text-on-surface-variant">
-                HAK certificirana nastava
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </header>
