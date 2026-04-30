@@ -6,6 +6,7 @@ import Instructors from "@/components/sections/Instructors";
 import Registration from "@/components/sections/Registration";
 import Faq, { faqItems } from "@/components/sections/Faq";
 import Locations from "@/components/sections/Locations";
+import LocationsHighlight from "@/components/sections/LocationsHighlight";
 
 export default function Home() {
   const faqLd = {
@@ -28,6 +29,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
       <Hero />
+      <LocationsHighlight />
       <Timeline />
       <Categories />
       <Pricing />
