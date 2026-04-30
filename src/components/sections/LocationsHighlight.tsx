@@ -8,14 +8,17 @@ const highlights = [
   {
     neighborhood: "Retfala",
     address: "Kolodvorska 83",
-    hint: "Glavni ured autoškole Pilot",
+    hint: "lako dostupna lokacija u središtu Retfale",
     isNew: false,
   },
 ];
 
 export default function LocationsHighlight() {
   return (
-    <section className="pt-4 pb-12 md:pb-16" aria-labelledby="lokacije-isticanje">
+    <section
+      className="pt-4 pb-12 md:pb-16"
+      aria-labelledby="lokacije-isticanje"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-8 md:mb-10">
           <span className="text-tertiary font-bold tracking-widest text-xs uppercase">
