@@ -3,8 +3,7 @@ const locations = [
     name: "Autoškola Pilot",
     address: "Kolodvorska 83, Retfala, 31000 Osijek",
     hours: "Pon – Pet: 10 – 16h",
-    phone: "091 100 3964",
-    phoneHref: "tel:0911003964",
+    phones: [{ phone: "031 311 522", phoneHref: "tel:031311522" }],
     features: ["Besplatan parking"],
     query: "Kolodvorska 83, 31000 Osijek",
   },
@@ -12,8 +11,7 @@ const locations = [
     name: "Autoškola Pilot 2",
     address: "Drinska 93, Bosutsko-Sjenjak, 31000 Osijek",
     hours: "Pon – Pet: 9 – 16h",
-    phone: "097 753 7422",
-    phoneHref: "tel:0977537422",
+    phones: [{ phone: "097 753 7422", phoneHref: "tel:0977537422" }],
     features: ["Moderna predavaonica", "Besplatan parking"],
     query: "Drinska 93, 31000 Osijek",
   },
@@ -73,18 +71,21 @@ export default function Locations() {
                     </span>
                     {l.hours}
                   </div>
-                  <a
-                    href={l.phoneHref}
-                    className="flex items-center gap-2 text-xs font-bold text-primary hover:underline"
-                  >
-                    <span
-                      className="material-symbols-outlined"
-                      style={{ fontSize: 18 }}
+                  {l.phones.map((p) => (
+                    <a
+                      key={p.phoneHref}
+                      href={p.phoneHref}
+                      className="flex items-center gap-2 text-xs font-bold text-primary hover:underline"
                     >
-                      call
-                    </span>
-                    {l.phone}
-                  </a>
+                      <span
+                        className="material-symbols-outlined"
+                        style={{ fontSize: 18 }}
+                      >
+                        call
+                      </span>
+                      {p.phone}
+                    </a>
+                  ))}
                   {l.features.map((f) => (
                     <div
                       key={f}
