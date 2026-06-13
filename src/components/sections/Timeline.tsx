@@ -87,7 +87,7 @@ export default function Timeline() {
 
         <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
           <span className="text-sm font-bold tracking-widest uppercase text-on-surface-variant">
-            ~8–10 tjedana do vozačke
+            ~10 do 12 tjedana do vozačke
           </span>
           <a
             href="#upis"

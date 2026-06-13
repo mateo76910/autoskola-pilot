@@ -114,7 +114,7 @@ export default function Pricing() {
           </h2>
           <p className="text-on-surface-variant max-w-2xl mx-auto mt-4">
             Transparentne cijene bez skrivenih troškova. Na jednokratno plaćanje
-            odobravamo popust od 10%.
+            B kategorije odobravamo popust od 10%.
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export default function Pricing() {
               </div>
               <p className="text-on-surface-variant text-sm">
                 Obuku možete platiti odjednom ili na rate bez kamata. Uz
-                jednokratnu uplatu odobravamo dodatni popust od{" "}
+                jednokratnu uplatu B kategorije odobravamo dodatni popust od{" "}
                 <span className="font-bold text-primary">10%</span>.
               </p>
             </div>

@@ -81,17 +81,17 @@ export default function Registration() {
                 <div className="font-bold">Telefon</div>
                 <div className="flex flex-col gap-1 mt-1">
                   <a
-                    href="tel:+385977537422"
+                    href="tel:0977537422"
                     className="text-sm text-on-surface-variant hover:text-primary"
                   >
-                    +385 97 7537422{" "}
+                    097 753 7422{" "}
                     <span className="opacity-70">(Igor)</span>
                   </a>
                   <a
-                    href="tel:+385911003964"
+                    href="tel:0911003964"
                     className="text-sm text-on-surface-variant hover:text-primary"
                   >
-                    +385 91 1003964{" "}
+                    091 100 3964{" "}
                     <span className="opacity-70">(Predrag)</span>
                   </a>
                 </div>
@@ -241,7 +241,7 @@ export default function Registration() {
                     name="phone"
                     type="tel"
                     autoComplete="tel"
-                    placeholder="+385 91 234 5678"
+                    placeholder="091 234 5678"
                     className={fieldClass}
                     required
                   />
