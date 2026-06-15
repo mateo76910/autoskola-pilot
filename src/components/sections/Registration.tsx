@@ -85,14 +85,12 @@ export default function Registration() {
                     className="text-sm text-on-surface-variant hover:text-primary"
                   >
                     097 753 7422{" "}
-                    <span className="opacity-70">(Igor)</span>
                   </a>
                   <a
                     href="tel:0911003964"
                     className="text-sm text-on-surface-variant hover:text-primary"
                   >
                     091 100 3964{" "}
-                    <span className="opacity-70">(Predrag)</span>
                   </a>
                 </div>
               </div>
