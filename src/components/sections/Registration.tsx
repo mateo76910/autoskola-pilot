@@ -84,13 +84,13 @@ export default function Registration() {
                     href="tel:0977537422"
                     className="text-sm text-on-surface-variant hover:text-primary"
                   >
-                    097 753 7422{" "}
+                    Pilot - Retfala, Kolodvorska 83 (031 311 522){" "}
                   </a>
                   <a
                     href="tel:0911003964"
                     className="text-sm text-on-surface-variant hover:text-primary"
                   >
-                    091 100 3964{" "}
+                    Pilot 2 - Bosutsko, Sjenjak, Drinska (097 753 7422){" "}
                   </a>
                 </div>
               </div>
