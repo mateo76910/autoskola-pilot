@@ -11,7 +11,7 @@ const locations = [
     name: "Autoškola Pilot 2",
     address: "Drinska 93, Bosutsko-Sjenjak, 31000 Osijek",
     hours: "Pon – Pet: 9 – 16h",
-    phones: [{ phone: "097 753 7422", phoneHref: "tel:0977537422" }],
+    phones: [{ phone: "097 683 3395", phoneHref: "tel:0976833395" }],
     features: ["Moderna predavaonica", "Besplatan parking"],
     query: "Drinska 93, 31000 Osijek",
   },

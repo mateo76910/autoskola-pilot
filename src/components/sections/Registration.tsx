@@ -81,16 +81,16 @@ export default function Registration() {
                 <div className="font-bold">Telefon</div>
                 <div className="flex flex-col gap-1 mt-1">
                   <a
-                    href="tel:0977537422"
+                    href="tel:031311522"
                     className="text-sm text-on-surface-variant hover:text-primary"
                   >
                     Pilot - Retfala, Kolodvorska 83 (031 311 522){" "}
                   </a>
                   <a
-                    href="tel:0911003964"
+                    href="tel:0976833395"
                     className="text-sm text-on-surface-variant hover:text-primary"
                   >
-                    Pilot 2 - Bosutsko, Sjenjak, Drinska (097 753 7422){" "}
+                    Pilot 2 - Bosutsko, Sjenjak, Drinska (097 683 3395){" "}
                   </a>
                 </div>
               </div>

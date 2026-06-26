@@ -6,27 +6,27 @@ type Row = {
 };
 
 const categoryB: Row[] = [
-  { category: "B", has: "/", price: "1.512,00 €" },
-  { category: "B", has: "A1, A2, A", price: "1.288,00 €" },
-  { category: "B (plaćanje na rate)", has: "/", price: "1.680,00 €" },
+  { category: "B", has: "/", price: "1.611,00 €" },
+  { category: "B (plaćanje na rate)", has: "/", price: "1.790,00 €" },
+  { category: "B", has: "A1", price: "1.404,00 €" },
+  { category: "BE", has: "B", price: "730,00 €" },
 ];
 
 const categoryA: Row[] = [
-  { category: "AM", has: "/", price: "810,00 €" },
-  { category: "A1", has: "/", price: "1.010,00 €" },
-  { category: "A1", has: "B", price: "280,00 €" },
-  { category: "A2", has: "B", price: "675,00 €" },
-  { category: "A2", has: "A1", price: "315,00 €" },
-  { category: "A2", has: "/", price: "1.110,00 €" },
-  { category: "A", has: "B", price: "750,00 €" },
-  { category: "A", has: "A1", price: "350,00 €" },
-  { category: "A", has: "A2", price: "250,00 €" },
-  { category: "A", has: "/", price: "1.460,00 €" },
+  { category: "AM", has: "/", price: "990,00 €" },
+  { category: "A1", has: "/", price: "1.280,00 €" },
+  { category: "A1", has: "B", price: "385,00 €" },
+  { category: "A2", has: "B", price: "900,00 €" },
+  { category: "A2", has: "A1", price: "420,00 €" },
+  { category: "A", has: "B", price: "930,00 €" },
+  { category: "A", has: "A1", price: "434,00 €" },
+  { category: "A", has: "A2", price: "310,00 €" },
 ];
 
 const categoryC: Row[] = [
-  { category: "C", has: "B", price: "1.260,00 €" },
-  { category: "C", has: "C1", price: "805,00 €" },
+  { category: "C", has: "B", price: "1.740,00 €" },
+  { category: "C", has: "C1", price: "1.130,00 €" },
+  { category: "CE", has: "C", price: "1.380,00 €" },
 ];
 
 function PriceTable({
