@@ -42,7 +42,6 @@ export default function Footer() {
             Kontakt
           </a>
         </div>
-
       </div>
     </footer>
   );

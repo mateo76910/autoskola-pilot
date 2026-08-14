@@ -71,60 +71,7 @@ export default function Registration() {
             dogovorili termin upisa i početka obuke.
           </p>
           <div className="space-y-5">
-            <div className="flex items-start gap-4">
-              <div className="bg-primary-fixed rounded-full w-12 h-12 shrink-0 flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary">
-                  call
-                </span>
-              </div>
-              <div>
-                <div className="font-bold">Telefon</div>
-                <div className="flex flex-col gap-1 mt-1">
-                  <a
-                    href="tel:031311522"
-                    className="text-sm text-on-surface-variant hover:text-primary"
-                  >
-                    Pilot - Retfala, Kolodvorska 83 (031 311 522){" "}
-                  </a>
-                  <a
-                    href="tel:0976833395"
-                    className="text-sm text-on-surface-variant hover:text-primary"
-                  >
-                    Pilot 2 - Bosutsko, Sjenjak, Drinska (097 683 3395){" "}
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <div className="bg-primary-fixed rounded-full w-12 h-12 shrink-0 flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary">
-                  mail
-                </span>
-              </div>
-              <div>
-                <div className="font-bold">E-mail</div>
-                <div className="flex flex-col gap-2 mt-1">
-                  <a
-                    href="mailto:as.pilot2018@gmail.com"
-                    className="text-sm text-on-surface-variant hover:text-primary"
-                  >
-                    as.pilot2018@gmail.com
-                  </a>
-                  <a
-                    href="mailto:aspilot.osijek@gmail.com"
-                    className="text-sm text-on-surface-variant hover:text-primary"
-                  >
-                    aspilot.osijek@gmail.com
-                  </a>
-                </div>
-              </div>
-            </div>
             <div className="flex items-center gap-4">
-              <div className="bg-primary-fixed rounded-full w-12 h-12 shrink-0 flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary">
-                  share
-                </span>
-              </div>
               <div>
                 <div className="font-bold">Društvene mreže</div>
                 <div className="flex gap-3 mt-2">

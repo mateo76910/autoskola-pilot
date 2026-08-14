@@ -9,7 +9,7 @@ const links = [
   { href: "#cjenik", label: "Cjenik" },
   { href: "#instruktori", label: "Instruktori" },
   { href: "#faq", label: "Česta pitanja" },
-  { href: "#lokacije", label: "Lokacije" },
+  { href: "#lokacije", label: "Lokacije/Kontakt" },
 ];
 
 export default function Navbar() {
