@@ -1,33 +1,14 @@
-type Row = {
-  category: string;
-  has: string;
-  price: string;
-  highlight?: boolean;
-};
+import Link from "next/link";
+import { REFERENTNI_DATUM } from "@/data/cjenik";
+import {
+  formatDatum,
+  formatEur,
+  stavke,
+  trenutniCjenik,
+  type StavkaCjenika,
+} from "@/lib/cjenik";
 
-const categoryB: Row[] = [
-  { category: "B", has: "/", price: "1.611,00 €" },
-  { category: "B (plaćanje na rate)", has: "/", price: "1.790,00 €" },
-  { category: "B", has: "A1", price: "1.404,00 €" },
-  { category: "BE", has: "B", price: "730,00 €" },
-];
-
-const categoryA: Row[] = [
-  { category: "AM", has: "/", price: "990,00 €" },
-  { category: "A1", has: "/", price: "1.280,00 €" },
-  { category: "A1", has: "B", price: "385,00 €" },
-  { category: "A2", has: "B", price: "900,00 €" },
-  { category: "A2", has: "A1", price: "420,00 €" },
-  { category: "A", has: "B", price: "930,00 €" },
-  { category: "A", has: "A1", price: "434,00 €" },
-  { category: "A", has: "A2", price: "310,00 €" },
-];
-
-const categoryC: Row[] = [
-  { category: "C", has: "B", price: "1.740,00 €" },
-  { category: "C", has: "C1", price: "1.130,00 €" },
-  { category: "CE", has: "C", price: "1.380,00 €" },
-];
+type Row = StavkaCjenika;
 
 function PriceTable({
   title,
@@ -78,19 +59,27 @@ function PriceTable({
             </tr>
           </thead>
           <tbody className="text-xs sm:text-sm">
-            {rows.map((r, i) => (
+            {rows.map((r) => (
               <tr
-                key={`${r.category}-${r.has}-${i}`}
+                key={r.sifra}
                 className="border-t border-outline-variant/20 hover:bg-surface-container-low/60 transition-colors"
               >
                 <td className="px-3 sm:px-6 py-3 sm:py-4 font-bold text-primary">
-                  {r.category}
+                  {r.kategorija}
                 </td>
                 <td className="px-3 sm:px-6 py-3 sm:py-4 text-on-surface-variant">
-                  {r.has}
+                  {r.posjeduje}
                 </td>
-                <td className="px-3 sm:px-6 py-3 sm:py-4 text-right font-extrabold whitespace-nowrap">
-                  {r.price}
+                <td className="px-3 sm:px-6 py-3 sm:py-4 text-right">
+                  <div className="font-extrabold whitespace-nowrap">
+                    {formatEur(r.cijena)}
+                  </div>
+                  <div className="mt-1 text-xs text-on-surface-variant leading-snug">
+                    Bazna cijena ({formatDatum(r.baznaDatum)}):{" "}
+                    <span className="font-bold whitespace-nowrap">
+                      {formatEur(r.bazna)}
+                    </span>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -102,6 +91,11 @@ function PriceTable({
 }
 
 export default function Pricing() {
+  const sve = stavke(trenutniCjenik());
+  const categoryB = sve.filter((s) => s.grupa === "B");
+  const categoryA = sve.filter((s) => s.grupa === "A");
+  const categoryC = sve.filter((s) => s.grupa === "C");
+
   return (
     <section className="py-24 bg-surface-container-low" id="cjenik">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -219,7 +213,13 @@ export default function Pricing() {
         <p className="text-center text-xs text-on-surface-variant mt-8 max-w-2xl mx-auto">
           * Sve cijene su izražene u eurima i uključuju teorijsku i praktičnu
           nastavu propisanu zakonom. Troškovi HAK-a (ispiti, liječničko
-          uvjerenje) nisu uključeni.
+          uvjerenje) nisu uključeni. Bazna cijena je cijena usluge koja je
+          vrijedila {formatDatum(REFERENTNI_DATUM)} Cjenik u strojno čitljivom
+          obliku:{" "}
+          <Link href="/cjenik" className="font-bold text-primary underline">
+            Cjenik (CSV)
+          </Link>
+          .
         </p>
       </div>
     </section>

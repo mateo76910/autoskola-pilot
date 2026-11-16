@@ -17,30 +17,36 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap gap-6 md:gap-8 text-sm justify-center">
-          <a
-            href="#cjenik"
+          <Link
+            href="/#cjenik"
             className="text-on-surface-variant hover:text-primary transition-colors"
           >
             Cjenik
-          </a>
-          <a
-            href="#faq"
+          </Link>
+          <Link
+            href="/cjenik"
+            className="text-on-surface-variant hover:text-primary transition-colors"
+          >
+            Cjenik (CSV)
+          </Link>
+          <Link
+            href="/#faq"
             className="text-on-surface-variant hover:text-primary transition-colors"
           >
             Česta pitanja
-          </a>
-          <a
-            href="#lokacije"
+          </Link>
+          <Link
+            href="/#lokacije"
             className="text-on-surface-variant hover:text-primary transition-colors"
           >
             Lokacije
-          </a>
-          <a
-            href="#upis"
+          </Link>
+          <Link
+            href="/#upis"
             className="text-on-surface-variant hover:text-primary transition-colors"
           >
             Kontakt
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

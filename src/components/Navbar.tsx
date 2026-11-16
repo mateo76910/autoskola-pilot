@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#kategorije", label: "Kategorije" },
-  { href: "#cjenik", label: "Cjenik" },
-  { href: "#instruktori", label: "Instruktori" },
-  { href: "#faq", label: "Česta pitanja" },
-  { href: "#lokacije", label: "Lokacije/Kontakt" },
+  { href: "/#kategorije", label: "Kategorije" },
+  { href: "/#cjenik", label: "Cjenik" },
+  { href: "/#instruktori", label: "Instruktori" },
+  { href: "/#faq", label: "Česta pitanja" },
+  { href: "/#lokacije", label: "Lokacije/Kontakt" },
 ];
 
 export default function Navbar() {
@@ -56,22 +56,22 @@ export default function Navbar() {
 
         <div className="hidden md:flex gap-8 items-center font-headline font-semibold tracking-tight">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="text-on-surface-variant hover:text-primary transition-colors"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
-        <a
-          href="#upis"
+        <Link
+          href="/#upis"
           className="hidden md:inline-flex bg-tertiary-fixed text-on-tertiary-fixed px-6 py-2 rounded-lg font-bold hover:scale-105 transition-transform duration-200 active:scale-95"
         >
           Upiši se
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -114,7 +114,7 @@ export default function Navbar() {
         <div className="min-h-0 overflow-hidden">
           <div className="border-t border-outline-variant/30 bg-surface/95 glass-nav px-6 py-6 flex flex-col gap-1 font-headline font-semibold">
             {links.map((l, i) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
@@ -128,10 +128,10 @@ export default function Navbar() {
                 }`}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#upis"
+            <Link
+              href="/#upis"
               onClick={() => setOpen(false)}
               style={{
                 transitionDelay: open ? `${80 + links.length * 40}ms` : "0ms",
@@ -141,7 +141,7 @@ export default function Navbar() {
               }`}
             >
               Upiši se
-            </a>
+            </Link>
           </div>
         </div>
       </div>
