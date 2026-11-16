@@ -16,8 +16,8 @@ export type StavkaCjenika = {
   posjeduje: string;
   naziv: string;
   cijena: number;
-  bazna: number;
-  baznaDatum: string;
+  /** Izostavljeno = stavka bez bazne cijene (popust za oblik plaćanja). */
+  bazna?: { iznos: number; datum: string };
   akcija?: string;
 };
 
@@ -78,8 +78,9 @@ export function stavke(verzija: CjenikVerzija): StavkaCjenika[] {
         posjeduje: u.posjeduje,
         naziv: nazivUsluge(u.kategorija, u.posjeduje),
         cijena,
-        bazna: u.bazna,
-        baznaDatum: u.baznaDatum ?? REFERENTNI_DATUM,
+        bazna: u.bezBazne
+          ? undefined
+          : { iznos: u.bazna, datum: u.baznaDatum ?? REFERENTNI_DATUM },
         akcija: verzija.akcije?.[u.sifra],
       },
     ];
@@ -142,15 +143,21 @@ function csvPolje(v: string): string {
 export function generirajCsv(verzija: CjenikVerzija): string {
   const redovi = [
     CSV_ZAGLAVLJE,
-    ...stavke(verzija).map((s) => [
-      s.sifra,
-      s.naziv,
-      formatCsvIznos(s.cijena),
-      s.akcija ? "DA" : "NE",
-      s.akcija ?? "",
-      formatCsvIznos(s.bazna),
-      formatDatum(s.baznaDatum),
-    ]),
+    ...stavke(verzija).flatMap((s) =>
+      s.bazna
+        ? [
+            [
+              s.sifra,
+              s.naziv,
+              formatCsvIznos(s.cijena),
+              s.akcija ? "DA" : "NE",
+              s.akcija ?? "",
+              formatCsvIznos(s.bazna.iznos),
+              formatDatum(s.bazna.datum),
+            ],
+          ]
+        : [],
+    ),
   ];
   return "﻿" + redovi.map((r) => r.map(csvPolje).join(";")).join("\r\n") + "\r\n";
 }

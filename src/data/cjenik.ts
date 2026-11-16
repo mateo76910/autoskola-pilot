@@ -31,11 +31,17 @@ export type Usluga = {
   bazna: number;
   /** ISO datum bazne cijene; izostavljeno = REFERENTNI_DATUM. */
   baznaDatum?: string;
+  /**
+   * Popust za oblik plaćanja (npr. jednokratno plaćanje): bazna cijena se ne
+   * ističe i stavka se ne objavljuje u CSV cjeniku — to nije zasebna usluga.
+   * `bazna` je tada samo cijena na referentni datum.
+   */
+  bezBazne?: true;
 };
 
 export const USLUGE = [
   { sifra: "B", grupa: "B", kategorija: "B", posjeduje: "/", bazna: 179000 },
-  { sifra: "B-POPUST", grupa: "B", kategorija: "B (uz popust od 10% na jednokratno plaćanje)", posjeduje: "/", bazna: 161100 },
+  { sifra: "B-POPUST", grupa: "B", kategorija: "B (uz popust od 10% na jednokratno plaćanje)", posjeduje: "/", bazna: 161100, bezBazne: true },
   { sifra: "B-A1", grupa: "B", kategorija: "B", posjeduje: "A1", bazna: 140400 },
   { sifra: "BE-B", grupa: "B", kategorija: "BE", posjeduje: "B", bazna: 73000 },
   { sifra: "AM", grupa: "A", kategorija: "AM", posjeduje: "/", bazna: 99000 },

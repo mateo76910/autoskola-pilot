@@ -74,12 +74,14 @@ function PriceTable({
                   <div className="font-extrabold whitespace-nowrap">
                     {formatEur(r.cijena)}
                   </div>
-                  <div className="mt-1 text-xs text-on-surface-variant leading-snug">
-                    Bazna cijena ({formatDatum(r.baznaDatum)}):{" "}
-                    <span className="font-bold whitespace-nowrap">
-                      {formatEur(r.bazna)}
-                    </span>
-                  </div>
+                  {r.bazna && (
+                    <div className="mt-1 text-xs text-on-surface-variant leading-snug">
+                      Bazna cijena ({formatDatum(r.bazna.datum)}):{" "}
+                      <span className="font-bold whitespace-nowrap">
+                        {formatEur(r.bazna.iznos)}
+                      </span>
+                    </div>
+                  )}
                 </td>
               </tr>
             ))}
